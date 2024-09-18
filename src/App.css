@@ -15,7 +15,7 @@
 
 .App-header {
     width: 100%;
-    background-color: #282c34;
+    background-color: salmon;
     min-height: 40vh;
     display: flex;
     flex-direction: column;
@@ -27,6 +27,30 @@
 
 .App-link {
     color: #61dafb;
+}
+
+.centered-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+.centered-row {
+    display: flex;
+    width: 100%;
+    max-width: 80%;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.Rect {
+    width: 50px;
+    height: 50px;
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @keyframes App-logo-spin {
