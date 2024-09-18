@@ -10,8 +10,8 @@ function App(): React.JSX.Element {
                 UM COS420 with React Hooks and TypeScript
             </header>
             <Container>
-                <Row class="centered-row">
-                    <Col class="centered-col">
+                <Row className="centered-row">
+                    <Col className="centered-col">
                         <h1>Cool header</h1>
                         <p>Hello World -- Izge Bayyurt</p>
                         <img
@@ -25,7 +25,7 @@ function App(): React.JSX.Element {
                             style={{ backgroundColor: "red" }}
                         ></div>
                     </Col>
-                    <Col class="centered-col">
+                    <Col className="centered-col">
                         <ul>
                             <li>Item 1</li>
                             <li>Item 2</li>
