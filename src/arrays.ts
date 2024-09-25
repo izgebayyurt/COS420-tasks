@@ -19,8 +19,7 @@ export function bookEndList(numbers: number[]): number[] {
  * number has been tripled (multiplied by 3).
  */
 export function tripleNumbers(numbers: number[]): number[] {
-    const newArray = numbers.map((num: number): number => num * 3);
-    return newArray;
+    return numbers.map((num: number): number => num * 3);
 }
 
 /**
@@ -28,10 +27,9 @@ export function tripleNumbers(numbers: number[]): number[] {
  * the number cannot be parsed as an integer, convert it to 0 instead.
  */
 export function stringsToIntegers(numbers: string[]): number[] {
-    const newArray = numbers.map((num: string): number =>
+    return numbers.map((num: string): number =>
         isNaN(parseInt(num)) ? 0 : parseInt(num),
     );
-    return newArray;
 }
 
 /**
@@ -56,7 +54,12 @@ export const removeDollars = (amounts: string[]): number[] => {
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    return [];
+    const noQuestions = messages.filter(
+        (message: string): boolean => !message.endsWith("?"),
+    );
+    return noQuestions.map((message: string): string =>
+        message.endsWith("!") ? message.toUpperCase() : message,
+    );
 };
 
 /**
@@ -73,7 +76,13 @@ export function countShortWords(words: string[]): number {
  * then return true.
  */
 export function allRGB(colors: string[]): boolean {
-    return false;
+    if (colors.length === 0) {
+        return true;
+    }
+    const acceptedColors = ["red", "blue", "green"];
+    return colors.every((color: string): boolean =>
+        acceptedColors.includes(color),
+    );
 }
 
 /**
