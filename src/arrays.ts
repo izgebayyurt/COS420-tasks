@@ -93,7 +93,23 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
-    return "";
+    let finalString =
+        "" +
+        addends.reduce(
+            (currentTotal: number, num: number) => currentTotal + num,
+            0,
+        ) +
+        "=";
+    if (addends.length === 0) {
+        return finalString + "0";
+    } else {
+        addends.map(
+            (currentNumber: number) =>
+                (finalString = finalString + currentNumber + "+"),
+            0,
+        );
+        return finalString.slice(0, finalString.length - 1);
+    }
 }
 
 /**
@@ -106,5 +122,33 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    return [];
+    const negativeNumExists = values.some(
+        (value: number): boolean => value < 0,
+    );
+    if (!negativeNumExists) {
+        return [
+            ...values,
+            values.reduce(
+                (currentTotal: number, num: number) => currentTotal + num,
+                0,
+            ),
+        ];
+    } else {
+        const negativeIdx = values.findIndex(
+            (value: number): boolean => value < 0,
+        );
+        console.log(negativeIdx);
+        let copyValues = [...values];
+        copyValues.splice(
+            negativeIdx + 1,
+            0,
+            copyValues
+                .slice(0, negativeIdx)
+                .reduce(
+                    (currentTotal: number, num: number) => currentTotal + num,
+                    0,
+                ),
+        );
+        return copyValues;
+    }
 }
