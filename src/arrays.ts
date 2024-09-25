@@ -137,7 +137,6 @@ export function injectPositive(values: number[]): number[] {
         const negativeIdx = values.findIndex(
             (value: number): boolean => value < 0,
         );
-        console.log(negativeIdx);
         let copyValues = [...values];
         copyValues.splice(
             negativeIdx + 1,
